@@ -1,5 +1,5 @@
 import { Container, Title, SubTitle, TitleSecondary } from './Home.styled';
-import AnimatedPage from 'components/AnimatedPage';
+// import AnimatedPage from 'components/AnimatedPage';
 import { useSelector } from 'react-redux';
 import { getIsLoggedIn, getUserName } from 'redux/selectors';
 
@@ -8,7 +8,7 @@ const Home = () => {
   const user = useSelector(getUserName);
   return (
     <Container>
-      <AnimatedPage>
+      {/* <AnimatedPage> */}
         <Title>
           Welcome to <TitleSecondary>PhoneBook</TitleSecondary> App 🤗
         </Title>
@@ -17,7 +17,7 @@ const Home = () => {
             ? `${user}, keep calm, and store your data securely`
             : 'To enter, please log in or register'}
         </SubTitle>
-      </AnimatedPage>
+      {/* </AnimatedPage> */}
     </Container>
   );
 };
