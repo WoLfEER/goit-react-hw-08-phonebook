@@ -8,14 +8,14 @@ const ContactForm = () => {
   const { data: contacts = [] } = useGetContactsQuery();
 
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [number, setNumber] = useState('');
 
   const handleSubmit = async e => {
     e.preventDefault();
     try {
       const newContact = {
         name,
-        phone,
+        number,
       };
 
       if (
@@ -25,7 +25,7 @@ const ContactForm = () => {
         )
       ) {
         return Notify.warning(
-          `${newContact.name} is already in contacts.
+          `${newContact.name} is already in contacts 😼.
         Please choose other name.`,
           {
             position: 'center-center',
@@ -34,7 +34,7 @@ const ContactForm = () => {
         );
       }
       await createContact(newContact);
-      Notify.success('Contact has been added');
+      Notify.success('Contact has been added 😻');
       reset();
     } catch (error) {
       Notify.failure(`${error.message}`);
@@ -48,7 +48,7 @@ const ContactForm = () => {
         setName(value);
         break;
       case 'phone':
-        setPhone(value);
+        setNumber(value);
         break;
       default:
         break;
@@ -57,7 +57,7 @@ const ContactForm = () => {
 
   const reset = () => {
     setName('');
-    setPhone('');
+    setNumber('');
   };
 
   return (
@@ -82,7 +82,7 @@ const ContactForm = () => {
           <input
             type="tel"
             name="phone"
-            value={phone}
+            value={number}
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
@@ -91,7 +91,7 @@ const ContactForm = () => {
         </label>
       </div>
       <button type="submit" disabled={isLoading}>
-        Add contact
+        + Add contact
       </button>
     </Form>
   );

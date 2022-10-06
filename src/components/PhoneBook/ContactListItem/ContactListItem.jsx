@@ -1,30 +1,39 @@
 import PropTypes from 'prop-types';
-import { Container } from './ContactListItem.styled';
-
-import Avatar from 'react-avatar';
+import { Container, Wrap, Name, Phone } from './ContactListItem.styled';
 import { useDeleteContactMutation } from 'redux/api';
+import { Loader } from 'components/Loader/Loader';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import Avatar from 'react-avatar';
 
 const ContactListItem = ({ contact }) => {
   const [deleteContact, { isLoading: removing }] = useDeleteContactMutation();
+  const { name, number, id } = contact;
+
+  const handleDelete = () => {
+    deleteContact(id);
+    Notify.success('Contact is deleted 😿');
+    Loader();
+  };
 
   return (
     <>
-      <Avatar
-        size="25"
-        color="#056cf2"
-        name={contact.name}
-        round={true}
-        shape="square"
-      />
       <Container>
-        <p>
-          {contact.name}:<span>{contact.phone}</span>
-        </p>
-        <button
-          disabled={removing}
-          type="button"
-          onClick={() => deleteContact(contact.id)}
-        >
+        <Avatar
+          size="25"
+          color="#056cf2"
+          name={contact.name}
+          round={true}
+          shape="square"
+        />
+        <Wrap>
+          <div>
+            <Name>{name}</Name>
+          </div>
+          <div>
+            <Phone>{number}</Phone>
+          </div>
+        </Wrap>
+        <button type="button" disabled={removing} onClick={handleDelete}>
           Delete
         </button>
       </Container>

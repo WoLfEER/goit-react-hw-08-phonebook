@@ -14,7 +14,7 @@ const Filter = () => {
   return (
     <Container>
       <label>
-        Find contacts by name
+        Find contacts by name 🧐
         <input
           type="text"
           name="filter"
