@@ -16,24 +16,12 @@ export const Container = styled.li`
     color: #ffffff;
     font-size: 14px;
     background: #ffa17f; /* fallback for old browsers */
-    background: -webkit-linear-gradient(
-      to left,
-      #00223e,
-      #ffa17f
-    ); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(
-      to left,
-      #00223e,
-      #ffa17f
-    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
     &:hover,
     &:focus {
       transform: scale(1.1);
       /* autoprefixer: off */
       transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
-      /* -webkit-transform: scale(1.1);
-      -moz-transform: scale(1.2); */
     }
   }
 `;
