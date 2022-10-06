@@ -7,10 +7,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background-image: url('./image/pexels-александар-цветановић-1440387.jpg'); */
-  /* background-position: top;
+  background-image: url('./image/pexels-александар-цветановић-1440387.jpg');
+  background-position: top;
   background-repeat: no-repeat;
-  background-size: cover; */
+  background-size: cover;
   background-color: #0d0b0c;
   overflow: hidden;
 }
